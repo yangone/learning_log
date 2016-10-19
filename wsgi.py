@@ -16,8 +16,6 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 
 
 import leancloud
-from gevent.pywsgi import WSGIServer
-
 from cloud import engine
 
 
@@ -31,4 +29,4 @@ leancloud.init(APP_ID, app_key=APP_KEY, master_key=MASTER_KEY)
 leancloud.use_master_key(False)
 
 
-application = engine
+application = get_wsgi_application()
