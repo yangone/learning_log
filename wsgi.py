@@ -11,11 +11,15 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
+# 设置 Django 项目配置文件
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
+
+
 import leancloud
+from gevent.pywsgi import WSGIServer
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "learning_log.settings")
+from cloud import engine
 
-application = get_wsgi_application()
 
 #leancloud初始化
 APP_ID = os.environ['LEANCLOUD_APP_ID']
@@ -25,3 +29,6 @@ MASTER_KEY = os.environ['LEANCLOUD_APP_MASTER_KEY']
 leancloud.init(APP_ID, app_key=APP_KEY, master_key=MASTER_KEY)
 # 如果需要使用 master key 权限访问 LeanCLoud 服务，请将这里设置为 True
 leancloud.use_master_key(False)
+
+
+application = engine

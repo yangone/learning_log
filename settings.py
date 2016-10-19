@@ -25,7 +25,7 @@ SECRET_KEY = 'y%lzu@phc&j5_jql30i-zl!^^ltk6x+nm&g6)jg2=1ymln^yhe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'learning_log.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATES = [
     {
