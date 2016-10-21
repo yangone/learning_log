@@ -11,12 +11,13 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
+
 # 设置 Django 项目配置文件
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 
 
 import leancloud
-from cloud import engine
+from leancloud.engine.leanengine import LeanEngineApplication
 
 
 #leancloud初始化
@@ -29,4 +30,4 @@ leancloud.init(APP_ID, app_key=APP_KEY, master_key=MASTER_KEY)
 leancloud.use_master_key(False)
 
 
-application = get_wsgi_application()
+application = LeanEngineApplication()
